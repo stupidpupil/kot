@@ -3,7 +3,7 @@ return unless defined?(KOT_PROBABILISTIC_TESTS) and KOT_PROBABILISTIC_TESTS == t
 describe Kot::Test do
 
   describe 'when I create a test with 100 possible generated items and test 100 equal-ability individuals with 20 items ' do
-    item_bank = Item4PL.generate(100)
+    item_bank = Kot::Item4PL.generate(100)
 
     outside_of_two_see = 0
     outside_of_three_see = 0

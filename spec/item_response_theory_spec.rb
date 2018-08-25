@@ -1,7 +1,7 @@
 
 describe Kot::ItemResponseTheory do
   describe 'when I create an Item with a:0.0' do
-    @item = Item4PL.new(a:0.0)
+    @item = Kot::Item4PL.new(a:0.0)
 
     it 'must have a uniform ICC' do
       @item.icc(-2).should.equal 0.5
@@ -15,7 +15,7 @@ describe Kot::ItemResponseTheory do
 
 
   describe 'when I create an Item with a:INFINITY and b:0.0' do
-    @item = Item4PL.new(a:Float::INFINITY, b:0.0)
+    @item = Kot::Item4PL.new(a:Float::INFINITY, b:0.0)
 
     it 'must have a sharp ICC' do
       @item.icc(-2).should.equal 0.0
@@ -27,7 +27,7 @@ describe Kot::ItemResponseTheory do
   end  
 
   describe 'when I create an Item with a:1 and b:0.0' do
-    @item = Item4PL.new(a:1.0, b:0.0)
+    @item = Kot::Item4PL.new(a:1.0, b:0.0)
 
     it 'must have the right ICC' do
       @item.icc(-2).should.be.close 0.0, 0.2
@@ -37,7 +37,7 @@ describe Kot::ItemResponseTheory do
   end  
 
   describe 'when I create an Item with a:1, b:0.0, c:0.4, d:0.6' do
-    @item = Item4PL.new(a:1.0, b:0.0, c:0.4, d:0.6)
+    @item = Kot::Item4PL.new(a:1.0, b:0.0, c:0.4, d:0.6)
 
     it 'must have the right ICC' do
       @item.icc(-2).should.be.close 0.4, 0.05
