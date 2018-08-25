@@ -1,7 +1,6 @@
 language: ruby
 rvm:
   - 2.5.1
-addons:
 cache:
   - bundler
 script: bundle exec bacon -a

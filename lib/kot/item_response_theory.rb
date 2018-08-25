@@ -1,11 +1,10 @@
 module Kot
 
-  # Requires a, b, c, d
+
+  # Include this module into a class to give various IRT statistics for individual items.
+  # Classes are expected to respond to #a, #b, #c and #d ; see the example {Item4PL} class for more information.
   module ItemResponseTheory
 
-    #
-    # Module methods for statistics based on estimated theta, items and responses
-    #
 
     def self.log_likelihood(est_theta, responses, items)
       ps = items.map {|i| i.icc(est_theta) }
@@ -25,10 +24,6 @@ module Kot
       Math.sqrt(var(est_theta, items))
     end
 
-
-    #
-    # Methods intended for inclusion into Item-classes
-    #
 
     def icc_component(theta)
       Math.exp(-a * (theta - b))

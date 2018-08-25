@@ -4,6 +4,7 @@ module Kot
 
 
 
+    # Estimates theta when all responses are true or all are false, based on Dodd, 1990.
     # "The variable stepsize changed the 0 estimate by half the distance to the appropriate ... value in the item pool."
     def dodd(est_theta:0.0, items:[], last_response:[])
       max_b = items.map(&:b).max
@@ -13,6 +14,7 @@ module Kot
     end
 
 
+    # Performs a single iteration of the hill climb, starting from one bound towards the other.
     def estimate_iteration(best_theta, max_ll, lower_bound, upper_bound, responses, items)
         step_size = (upper_bound - lower_bound) /  10
 
@@ -45,6 +47,7 @@ module Kot
         return best_theta, max_ll, lower_bound, upper_bound
     end
 
+    # Estimate theta using multiple iterations of a hill climb, falling back to {#dodd} if all responses are true or false.
     def estimate(responses:[], items:[], all_items:[], est_theta:0.0)
       if responses.uniq.count == 1
         raise ArgumentError.new("Responses are all #{responses.first} but missing all_items argument") if all_items.empty?
