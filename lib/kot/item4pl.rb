@@ -3,6 +3,8 @@ module Kot
   class Item4PL
     include Kot::ItemResponseTheory
 
+    attr_reader :a, :b, :c, :d
+
     # @!attribute [r] a
     #   @return [Float] discrimination/maximum slope
 
@@ -14,8 +16,6 @@ module Kot
 
     # @!attribute [r] d
     #   @return [Float] insurmountable difficulty/upper asymptote
-
-    attr_reader :a, :b, :c, :d
 
     def self.[](*arr)
       arr.map {|a| Item4PL.new(a)}
