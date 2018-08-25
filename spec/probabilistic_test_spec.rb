@@ -1,3 +1,5 @@
+return unless defined?(KOT_PROBABILISTIC_TESTS) and KOT_PROBABILISTIC_TESTS=true
+
 describe Kot::Test do
 
   describe 'when I create a test with 100 possible generated items and test 100 equal-ability individuals with 20 items ' do
