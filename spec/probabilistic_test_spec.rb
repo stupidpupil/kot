@@ -1,4 +1,4 @@
-return unless defined?(KOT_PROBABILISTIC_TESTS) and KOT_PROBABILISTIC_TESTS=true
+return unless defined?(KOT_PROBABILISTIC_TESTS) and KOT_PROBABILISTIC_TESTS == true
 
 describe Kot::Test do
 

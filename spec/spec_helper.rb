@@ -5,6 +5,8 @@ SimpleCov.start
 
 require 'kot'
 
+KOT_PROBABILISTIC_TESTS = !ENV['KOT_PROBABILISTIC_TESTS'].nil?
+
 class Item4PL
   include Kot::ItemResponseTheory
 
