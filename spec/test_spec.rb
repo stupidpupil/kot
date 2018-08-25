@@ -13,7 +13,7 @@ describe Kot::Test do
     100.times do |j|
       t = Kot::Test.new(item_bank)
 
-      10.times do |i|
+      20.times do |i|
         item = t.next_item
         resp = (item.icc(real_icc) >= rand())
         t.respond(resp, item)
