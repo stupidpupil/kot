@@ -1,0 +1,5 @@
+/integration_test_support
+/.yardoc
+Gemfile.lock
+/env
+/coverage
