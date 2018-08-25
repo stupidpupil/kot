@@ -24,7 +24,7 @@ describe Kot::HillClimbingEstimator do
 
   describe 'when given items [b:y-x, b:y, b:y, b:y+x] and responses [true, true, false, false]' do
 
-    it 'should give an estimated theta of very close to 0.5' do
+    it 'should give an estimated theta of very close to y' do
 
       y = (rand()*4)-2
       x = (rand()*2)
@@ -32,7 +32,21 @@ describe Kot::HillClimbingEstimator do
       Kot::HillClimbingEstimator.new.estimate(
         items:Item4PL[{b:y-x}, {b:y}, {b:y}, {b:y+x}], 
         responses:[true, true, false, false]
-      ).should.be.close y,0.01
+      ).should.be.close y, 0.01
+    end
+  end
+
+  describe 'when given items [b:y-x, b:y+x] and responses [true, false]' do
+
+    it 'should give an estimated theta of very close to y' do
+
+      y = (rand()*4)-2
+      x = (rand()*2)
+
+      Kot::HillClimbingEstimator.new.estimate(
+        items:Item4PL[{b:y-x}, {b:y+x}], 
+        responses:[true, false]
+      ).should.be.close y, 0.01
     end
   end
 
