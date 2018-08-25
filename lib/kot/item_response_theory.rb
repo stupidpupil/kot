@@ -1,6 +1,5 @@
 module Kot
 
-
   # Requires a, b, c, d
   module ItemResponseTheory
 
@@ -37,7 +36,7 @@ module Kot
 
     # Item characteristic curve
     def icc(theta)
-      c + ((d - c) / (1 + icc_component(theta)))
+      c + ((d - c) / (1.0 + icc_component(theta)))
     end
 
     # Information value of an item
