@@ -30,7 +30,7 @@ describe Kot::Test do
 
 
     it "must tend to get close to the individuals' real ICC" do
-      (thetas.inject(:+)/thetas.count).should.be.close real_icc, 0.25
+      (thetas.inject(:+)/thetas.count).should.be.close real_icc, 0.2
       outside_of_two_see.should.be.close 5, 5 #95%?
       outside_of_three_see.should.be.close 0, 5
     end
