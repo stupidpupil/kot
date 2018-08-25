@@ -14,9 +14,13 @@ module Kot
 
 
     def estimate_iteration(best_theta, max_ll, lower_bound, upper_bound, responses, items)
-
         step_size = (upper_bound - lower_bound) /  10
-        intervals = (lower_bound...upper_bound).step(step_size.abs)
+
+        if step_size > 0
+          intervals = (lower_bound..upper_bound).step(step_size).each
+        else
+          intervals = (upper_bound..lower_bound).step(step_size.abs).reverse_each
+        end
 
         intervals.each do |ii|
 
