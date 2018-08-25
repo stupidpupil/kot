@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-#gemspec
+gemspec
 
 group :test do
-  gem 'simplecov', require: false
   gem 'bacon', require: false
+  gem 'simplecov', require: false
 end

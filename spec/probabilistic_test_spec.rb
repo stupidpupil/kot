@@ -10,19 +10,19 @@ describe Kot::Test do
     sees = []
     thetas = []
 
-    real_icc = (rand()*3)-1.5
+    real_icc = (rand() * 3) - 1.5
 
-    100.times do |j|
+    100.times do
       t = Kot::Test.new(item_bank)
 
-      20.times do |i|
+      20.times do
         item = t.next_item
         resp = (item.icc(real_icc) >= rand())
         t.respond(resp, item)
       end
 
-      outside_of_two_see += 1 if (t.est_theta - real_icc).abs > (2*t.see)
-      outside_of_three_see += 1 if (t.est_theta - real_icc).abs > (3*t.see)
+      outside_of_two_see += 1   if (t.est_theta - real_icc).abs > (2 * t.see)
+      outside_of_three_see += 1 if (t.est_theta - real_icc).abs > (3 * t.see)
 
       sees << t.see
       thetas << t.est_theta
@@ -30,11 +30,10 @@ describe Kot::Test do
 
 
     it "must tend to get close to the individuals' real ICC" do
-      (thetas.inject(:+)/thetas.count).should.be.close real_icc, 0.2
-      outside_of_two_see.should.be.close 5, 5 #95%?
+      (thetas.inject(:+) / thetas.count).should.be.close real_icc, 0.2
+      outside_of_two_see.should.be.close 5, 5 # 95%?
       outside_of_three_see.should.be.close 0, 5
     end
 
   end
-
 end

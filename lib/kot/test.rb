@@ -1,6 +1,5 @@
 module Kot
 
-
   class Test
 
     attr_reader :est_theta
@@ -23,7 +22,7 @@ module Kot
 
     # Update the estimated theta for the test so far.
     def update_est_theta
-      @est_theta = @estimator.estimate(est_theta: @est_theta, responses:@responses, items:@asked_items, all_items:@item_bank)
+      @est_theta = @estimator.estimate(est_theta: @est_theta, responses: @responses, items: @asked_items, all_items: @item_bank)
     end
 
     # Ask the selector for a new item from the item bank.

@@ -7,7 +7,8 @@ module Kot
     end
 
     def select(est_theta, possible_items)
-      possible_items.sort_by {|i| - i.inf(est_theta)}.slice(0, @bin_size).sample
+      possible_items.sort_by { |i| - i.inf(est_theta) }.
+        slice(0, @bin_size).sample
     end
 
   end
