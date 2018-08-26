@@ -12,7 +12,7 @@ module Kot
 
     # Performs a single iteration of the hill climb, starting from one bound towards the other.
     def estimate_iteration(best_theta, max_ll, lower_bound, upper_bound, responses, items)
-      step_size = (upper_bound - lower_bound) /  10
+      step_size = (upper_bound - lower_bound) / 10
 
       case step_size <=> 0
       when 1

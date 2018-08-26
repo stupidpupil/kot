@@ -1,7 +1,7 @@
 describe Kot::RandomesqueSelector do
 
   describe 'when given a well-distributed item bank' do
-    item_bank = Kot::Item4PL.generate(100)
+    item_bank = Kot::Item4PL.generate(500)
     s = Kot::RandomesqueSelector.new()
 
     it 'and a theta of 0 pick an item with a b near 0' do
