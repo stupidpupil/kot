@@ -33,7 +33,7 @@ module Kot
           #TODO: precision-based early exit
           best_theta = ii
         else
-          lower_bound = best_theta - step_size.abs
+          lower_bound = best_theta - step_size
           upper_bound = ii
           break
         end
@@ -50,15 +50,17 @@ module Kot
         return dodd(est_theta: est_theta, items: all_items, last_response: responses.last)
       end
 
-      lower_bound = items.map(&:b).min
-      upper_bound = items.map(&:b).max
+      # TODO: More intelligently decide limits to theta
+      lower_bound = (items.map(&:b) << -3.0).min
+      upper_bound = (items.map(&:b) << +3.0).max
 
       return lower_bound if upper_bound == lower_bound
 
       best_theta = - Float::INFINITY
-      max_ll = - Float::INFINITY
 
       10.times do
+        max_ll = - Float::INFINITY
+
         best_theta, max_ll, lower_bound, upper_bound = 
           estimate_iteration(best_theta, max_ll, lower_bound, upper_bound, responses, items)
 

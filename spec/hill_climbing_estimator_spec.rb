@@ -6,7 +6,7 @@ describe Kot::HillClimbingEstimator do
       Kot::HillClimbingEstimator.new.estimate(
         items: Kot::Item4PL[{b: 0.5}, {b: 0.5}],
         responses: [true, false]
-      ).should.equal 0.5
+      ).should.be.close 0.5, 0.01
     end
 
   end
@@ -17,7 +17,7 @@ describe Kot::HillClimbingEstimator do
       Kot::HillClimbingEstimator.new.estimate(
         items: Kot::Item4PL[{b: 0.2}, {b: 0.5}, {b: 0.5}, {b: 0.8}],
         responses: [true, true, false, false]
-      ).should.equal 0.5
+      ).should.be.close 0.5, 0.01
     end
   end
 
