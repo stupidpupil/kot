@@ -61,6 +61,9 @@ module Kot
     #   Usually set to 1.0 for 1-3PL models.
     #   @return [Float] Insurmountable difficulty
 
+
+    # @param arr [Array<Hash>] an array of hashes describing Item4PL parameters
+    # @return [Array<Item4PL>] an array of Item4PLs
     def self.[](*arr)
       arr.map { |a| Item4PL.new(a) }
     end
@@ -74,7 +77,7 @@ module Kot
     end
 
     # @return [Item4PL] a 1PL Item4PL with a {#b} chosen randomly from N(0,1)
-    # @return [Array] an array of 1PL Item4PLs with {#b}s chosen randomly from N(0,1)
+    # @return [Array<Item4PL>] an array of 1PL Item4PLs with {#b}s chosen randomly from N(0,1)
     def self.generate(n = nil)
       return Item4PL.new(b:gaussian()) if n.nil?
       Array.new(n) { generate }
