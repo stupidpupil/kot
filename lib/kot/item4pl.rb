@@ -39,10 +39,11 @@ module Kot
     #   @return [Float] Difficulty
 
     # @!attribute [r] c
-    #   Likelihood of guesing the item.
+    #   Minimum likelihood of guessing the item.
     #   This describes the lower asymptote of the item's ICC,
     #   and so the lowest probability of answering correctly regardless of ability.
     #
+    #   It can often be thought of as the probability of guessing the correct answer.
     #   For example, a multiple choice test item with 5 possible answers,
     #   one of which is correct, might have a _c_ of 1/5 or 0.2 .
     #
