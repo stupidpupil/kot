@@ -23,6 +23,8 @@ module Kot
     #   of *less* *than* _b_ would have _c_ probability of getting the answer right and anyone with an ability
     #   *greater* *than* _b_ would have _d_ probability of getting the answer right.
     #
+    #   Negative _a_ generally suggests that right answers are being coded as incorrect, and vice-versa. 
+    #
     #   Usually set to 1.0 for 1PL models.
     #   @return [Float] Discrimination
 
